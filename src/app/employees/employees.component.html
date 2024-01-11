@@ -1,0 +1,23 @@
+
+<div class="employees-form-container  container col-6">
+  <div class="container">
+    <div class="row">
+      <div class="employees-data-con col">
+        <h3>EMPLOYEES DATA</h3>
+        <div *ngFor="let employee of employees">
+          <p>Name: {{ employee.name }}</p>
+          <p>Email: {{ employee.email }}</p>
+          <p>Phone: {{ employee.phone }}</p>
+          <p>Designation: {{ employee.designation }}</p>
+          <p>Salary: {{ employee.salary }}</p>
+          <button class="btn btn-danger btn-sm" (click)="onClick(employee)">
+            Delete
+          </button>
+          &nbsp;
+          <button class="btn btn-primary btn-sm">Edit</button>
+          <hr />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

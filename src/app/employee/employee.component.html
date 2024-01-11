@@ -1,0 +1,63 @@
+<div class="add-employee-container container col-5">
+  <h3>EMPLOYEE FORM</h3>
+  <form [formGroup]="employeeForm" (ngSubmit)="onEmployeeSubmit()">
+    <div class="form-group">
+      <label for="id">ID</label>
+      <input
+        type="text"
+        class="form-control"
+        id="eid"
+        placeholder="Enter ID"
+        name="eid"
+        formControlName="eid"
+      />
+      <label for="name">NAME</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        placeholder="Enter Name"
+        name="name"
+        formControlName="name"
+      />
+      <label for="email">EMAIL</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Enter Email"
+        name="email"
+        formControlName="email"
+      />
+      <label for="phone">PHONE</label>
+      <input
+        type="text"
+        class="form-control"
+        id="phone"
+        placeholder="Enter Phone"
+        name="phone"
+        formControlName="phone"
+      />
+      <label for="designation">DESIGNATION</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter Designation"
+        id="designation"
+        name="designation"
+        formControlName="designation"
+      />
+      <label for="salary">SALARY</label>
+      <input
+        type="text"
+        class="form-control"
+        id="salary"
+        placeholder="Enter Salary"
+        name="salary"
+        formControlName="salary"
+      />
+    </div>
+
+    <button type="buttom" class="btn btn-primary mt-4">Submit</button>
+  </form>
+</div>
