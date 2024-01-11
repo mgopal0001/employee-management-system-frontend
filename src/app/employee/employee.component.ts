@@ -42,13 +42,13 @@ export class EmployeeComponent {
   onEmployeeSubmit() {
     // You can perform actions like sending data to a server or storing in a database here
     console.log('Submitted Data:', this.employeeForm.value);
-    this.employeeService.createEmployee(this.employeeForm.value).subscribe(
-      (res) => {
+    this.employeeService.createEmployee(this.employeeForm.value).subscribe({
+      next: (res) => {
         console.log({ res });
       },
-      (error) => {
+      error: (error) => {
         console.log({ error });
       }
-    );
+    });
   }
 }
