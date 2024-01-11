@@ -1,6 +1,14 @@
-
-<div class="employees-form-container  container col-6">
-  <div class="container">
+<div class="navbar-con">
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <button class="btn btn-primary btn-sm" (click)="addEmployee()">
+      Add New Employee
+    </button>
+    &nbsp;
+    <button class="btn btn-primary btn-sm" (click)="logout()">Logout</button>
+  </nav>
+</div>
+<div class="employees-form-container container">
+  <div class="container col-6">
     <div class="row">
       <div class="employees-data-con col">
         <h3>EMPLOYEES DATA</h3>
@@ -10,11 +18,19 @@
           <p>Phone: {{ employee.phone }}</p>
           <p>Designation: {{ employee.designation }}</p>
           <p>Salary: {{ employee.salary }}</p>
-          <button class="btn btn-danger btn-sm" (click)="onClick(employee)">
+          <button
+            class="btn btn-danger btn-sm"
+            (click)="deleteEmployee(employee)"
+          >
             Delete
           </button>
           &nbsp;
-          <button class="btn btn-primary btn-sm">Edit</button>
+          <button
+            class="btn btn-primary btn-sm"
+            (click)="editEmployee(employee)"
+          >
+            Edit
+          </button>
           <hr />
         </div>
       </div>

@@ -1,28 +1,37 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   domain: any;
+  authToken: any;
   headers: any;
 
   constructor(private http: HttpClient) {
-    this.headers = new HttpHeaders({
-      'Content-Type': 'application/json', // Format set to JSON
-      // 'authorization': this.authService.authToken // Attach token
-    });
+    this.domain = 'http://localhost:8000/';
   }
 
-  loginUser(body: any) {
-    return this.http.post(this.domain + 'login', body, this.headers).subscribe(
-      (res) => {
-        console.log({ res });
-      },
-      (error) => {
-        console.log({ error });
-      }
-    );
+  loginUser(body: any): Observable<any> {
+    this.headers = {
+      'Content-Type': 'application/json',
+    };
+    return this.http.post(this.domain + 'admin/login', body, this.headers);
+  }
+
+  getToken() {
+    return `Bearer ${localStorage.getItem('token')}`; // Get token and asssign to variable to be used elsewhere
+  }
+
+  logout() {
+    this.authToken = null;
+    localStorage.clear();
+  }
+
+  setToken(token: any) {
+    localStorage.setItem('token', token); // Set token in local storage
+    this.authToken = token; // Assign token to be used elsewhere
   }
 }

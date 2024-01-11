@@ -2,15 +2,6 @@
   <h3>EMPLOYEE FORM</h3>
   <form [formGroup]="employeeForm" (ngSubmit)="onEmployeeSubmit()">
     <div class="form-group">
-      <label for="id">ID</label>
-      <input
-        type="text"
-        class="form-control"
-        id="eid"
-        placeholder="Enter ID"
-        name="eid"
-        formControlName="eid"
-      />
       <label for="name">NAME</label>
       <input
         type="text"
@@ -58,6 +49,11 @@
       />
     </div>
 
-    <button type="buttom" class="btn btn-primary mt-4">Submit</button>
+    <button type="buttom" class="btn btn-primary mt-4" *ngIf="mode == 'add'">
+      Submit
+    </button>
+    <button type="buttom" class="btn btn-primary mt-4" *ngIf="mode == 'edit'">
+      Update
+    </button>
   </form>
 </div>
